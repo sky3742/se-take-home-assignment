@@ -1,0 +1,24 @@
+<div>
+    <button (click)="addOrder(false)">Normal Order</button>
+    <button (click)="addOrder(true)">VIP Order</button>
+</div>
+
+<div class="orders">
+    <div>
+        <span>Pending Orders</span>
+        <ng-container *ngFor="let order of this.orderService.pendingOrders | async">
+            <div>
+                <span>{{ order.id }}</span>
+            </div>
+        </ng-container>
+    </div>
+
+    <div>
+        <span>Completed Orders</span>
+        <ng-container *ngFor="let order of this.orderService.completedOrders | async">
+            <div>
+                <span>{{ order.id }}</span>
+            </div>
+        </ng-container>
+    </div>
+</div>
