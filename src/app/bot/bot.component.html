@@ -1,0 +1,13 @@
+<div>
+    <button (click)="addBot()">+ Bot</button>
+    <button (click)="removeBot()">- Bot</button>
+</div>
+
+<div>
+    <div *ngFor="let bot of this.botService.bots | async">
+        <span> {{ bot.id }} </span>
+        <ng-container *ngIf="bot.order !== undefined">
+            <span> - {{ bot.order.id }} (time left: {{ bot.order.timeLeft }} seconds) </span>
+        </ng-container>
+    </div>
+</div>
